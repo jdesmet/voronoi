@@ -2,6 +2,8 @@
 
 Original: [http://www-2.cs.cmu.edu/afs/andrew/scs/cs/15-463/pub/src/a2/quadedge.html](http://www-2.cs.cmu.edu/afs/andrew/scs/cs/15-463/pub/src/a2/quadedge.html)
 
+This document is to be modified to match the Java Library and modifications and improvements made.
+
 Computer Graphics 2, 15-463  
 Paul Heckbert  
 Carnegie Mellon University
