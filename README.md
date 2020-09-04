@@ -75,7 +75,6 @@ We now describe our implementation of quad-edge. We emphasize the high level pub
 </a><a name="edge">### Edge
 
 The class <tt>Edge</tt> represents a directed edge. Given <tt>Edge *e</tt>, you can find the immediately adjacent vertices, faces, and edges, and the "symmetric" edge that points in the opposite direction. These operators are all fast (just a few memory references). Because edges are directed and we always imagine ourselves viewing the object from the outside, we can speak of the origin and destination vertices and left and right faces of an edge. We summarize the interface below (see</a> [cell/edge.hh](http://www-2.cs.cmu.edu/afs/andrew/scs/cs/15-463/pub/src/a2/cell/edge.hh), for the full story).
-https://github.com/jdesmet/voronoi/blob/master/Documentation/pictures/dual.jpg
 ![](Documentation/pictures/vertface.jpg)
 
 *   <tt>Edge *e</tt> - directed edge
@@ -84,7 +83,7 @@ https://github.com/jdesmet/voronoi/blob/master/Documentation/pictures/dual.jpg
 *   <tt>Face *e->Left()</tt> - face on the left of e
 *   <tt>Face *e->Right()</tt> - face on the right of e
 
-![](pictures/edge.jpg)  
+![](Documentation/pictures/edge.jpg)  
 In the following functions, "next" means next in a counterclockwise (ccw) sense around a neighboring face or vertex.
 
 *   <tt>Edge *e->Rnext()</tt> - next edge around right face, with same right face
@@ -163,12 +162,12 @@ Using an iterator, the alternative to <tt>orgFromEdge</tt> is:
 
 ### Duality
 
-You may have noticed how similarly vertices and faces are treated in the above. That is no accident. Guibas and Stolfi designed the quad-edge data structure with that duality in mind. ![](pictures/dual.jpg)  
+You may have noticed how similarly vertices and faces are treated in the above. That is no accident. Guibas and Stolfi designed the quad-edge data structure with that duality in mind. ![](Documentation/pictures/dual.jpg)  
 
 The _dual_ of a polyhedron is the polyhedron resulting from rotating edges 90 degrees, replacing vertices with faces, and faces with vertices. The new vertex locations can be taken to be the centroids of the old faces. For example, the dual of a cube is an octahedron, and vice versa; and dodecahedra and icosahedra are duals of each other, also. A tetrahedron is dual with a rotated copy of itself.
 
 The quad-edge data structure gets its name because the duality is built in at a low level by storing quadruples of directed edges together:  
-![](pictures/quadedge.jpg)  
+![](Documentation/pictures/quadedge.jpg)  
 
 *   <tt>Edge *e</tt> - directed edge
 *   <tt>Edge *e->Sym()</tt> - edge pointing opposite to e
@@ -219,7 +218,7 @@ The data pointer here is just like that for vertices.<a name="cell"></a>
 which are called Euler operators, since they maintain Euler's formula V-E+F=2 interrelating the number of vertices, edges, and faces of a polyhedron of genus 0 (topologically equivalent to a sphere). If the topology is a valid polyhedron before the call, it will be valid after the call, as well. Note that these routines update the topology, but they use the default constructors for <tt>Vertex</tt> and <tt>Face</tt>, so the positions of new vertices are (0,0,0) -- you'll have to set them yourself.
 
 Also, these routines (and the rest of the library) do not enforce linearity of edges or planarity of faces. It is permissible to have vertices and faces of degree 1 or 2, for example.  
-![](pictures/eulerop.jpg)  
+![](Documentation/pictures/eulerop.jpg)  
 
 Given <tt>Cell *c</tt>, the calls do the following:
 
