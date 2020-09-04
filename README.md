@@ -75,8 +75,8 @@ We now describe our implementation of quad-edge. We emphasize the high level pub
 </a><a name="edge">### Edge
 
 The class <tt>Edge</tt> represents a directed edge. Given <tt>Edge *e</tt>, you can find the immediately adjacent vertices, faces, and edges, and the "symmetric" edge that points in the opposite direction. These operators are all fast (just a few memory references). Because edges are directed and we always imagine ourselves viewing the object from the outside, we can speak of the origin and destination vertices and left and right faces of an edge. We summarize the interface below (see</a> [cell/edge.hh](http://www-2.cs.cmu.edu/afs/andrew/scs/cs/15-463/pub/src/a2/cell/edge.hh), for the full story).
-
-![](pictures/vertface.jpg)
+https://github.com/jdesmet/voronoi/blob/master/Documentation/pictures/dual.jpg
+![](Documentation/pictures/vertface.jpg)
 
 *   <tt>Edge *e</tt> - directed edge
 *   <tt>Vertex *e->Org()</tt> - vertex at the origin of e
